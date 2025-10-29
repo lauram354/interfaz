@@ -3,14 +3,14 @@ import React, { useState } from 'react';
 export default function GamepadControl({ onCommand }) {
   const [activeButton, setActiveButton] = useState(null);
 
-  const handlePress = (cmd) => {
-    setActiveButton(cmd);
+  const handlePress = (cmd, name) => {
+    setActiveButton(name);
     onCommand(cmd);
   };
 
   const handleRelease = () => {
     setActiveButton(null);
-    onCommand('stop');
+    onCommand('0');
   };
 
   return (
@@ -21,10 +21,10 @@ export default function GamepadControl({ onCommand }) {
           <div className="dpad-cross-unified">
             {/* Top */}
             <button
-              onMouseDown={() => handlePress('forward')}
+              onMouseDown={() => handlePress('1', 'forward')}
               onMouseUp={handleRelease}
               onMouseLeave={handleRelease}
-              onTouchStart={() => handlePress('forward')}
+              onTouchStart={() => handlePress('1', 'forward')}
               onTouchEnd={handleRelease}
               className={`dpad-button-unified top ${activeButton === 'forward' ? 'active' : ''}`}
               aria-label="forward"
@@ -34,10 +34,10 @@ export default function GamepadControl({ onCommand }) {
 
             {/* Left */}
             <button
-              onMouseDown={() => handlePress('left')}
+              onMouseDown={() => handlePress('4', 'left')}
               onMouseUp={handleRelease}
               onMouseLeave={handleRelease}
-              onTouchStart={() => handlePress('left')}
+              onTouchStart={() => handlePress('4', 'left')}
               onTouchEnd={handleRelease}
               className={`dpad-button-unified left ${activeButton === 'left' ? 'active' : ''}`}
               aria-label="left"
@@ -47,7 +47,7 @@ export default function GamepadControl({ onCommand }) {
 
             {/* Center */}
             <button
-              onMouseDown={() => handlePress('stop')}
+              onMouseDown={() => handlePress('0', 'stop')}
               onMouseUp={handleRelease}
               className="dpad-center-unified"
               aria-label="stop"
@@ -57,10 +57,10 @@ export default function GamepadControl({ onCommand }) {
 
             {/* Right */}
             <button
-              onMouseDown={() => handlePress('right')}
+              onMouseDown={() => handlePress('3', 'right')}
               onMouseUp={handleRelease}
               onMouseLeave={handleRelease}
-              onTouchStart={() => handlePress('right')}
+              onTouchStart={() => handlePress('3', 'right')}
               onTouchEnd={handleRelease}
               className={`dpad-button-unified right ${activeButton === 'right' ? 'active' : ''}`}
               aria-label="right"
@@ -70,10 +70,10 @@ export default function GamepadControl({ onCommand }) {
 
             {/* Bottom */}
             <button
-              onMouseDown={() => handlePress('backward')}
+              onMouseDown={() => handlePress('2', 'backward')}
               onMouseUp={handleRelease}
               onMouseLeave={handleRelease}
-              onTouchStart={() => handlePress('backward')}
+              onTouchStart={() => handlePress('2', 'backward')}
               onTouchEnd={handleRelease}
               className={`dpad-button-unified bottom ${activeButton === 'backward' ? 'active' : ''}`}
               aria-label="backward"
