@@ -9,7 +9,7 @@ export default function App() {
   const [isConnected, setIsConnected] = useState(false);
 
   // Cambia esta IP por la de tu ESP32
-  const ESP_IP = "http://10.59.88.36";
+  const ESP_IP = "http://10.49.78.36";
 
   // Leer datos del ESP32 cada 3 segundos
   useEffect(() => {
